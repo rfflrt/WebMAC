@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+            JupiterWeb
+        </title>
+        <style>
+            header{
+                display: flex;
+                flex-direction: column;
+            }
+
+            #imgs{
+                display: flex;
+                align-items: center;
+                gap: 2vh;
+            }
+
+            #logo{
+                height: 5vh;
+                margin-top: -1vh;
+                margin-left: 2vh;
+            }
+            
+            #nome{
+                height: 6vh;
+            }
+
+            #orange{
+                background-color: orange;
+                height: 4px;
+            }
+
+            #cyan{
+                background-color: rgb(85, 215, 232);
+                height: 4px;
+            }
+
+            #darkcyan{
+                background-color: rgb(4, 144, 159);
+                height: 12px;
+            }
+
+            @media (min-width: 600px){
+                #main{
+                    display: flex;
+                    margin-top: 1vh;
+                }
+
+                .links{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.3vh;
+                    border: 1px solid lightgray;
+                    border-radius: 3px;
+                    width: 100px;
+                    font-size: 12px;
+
+                }
+            }
+            @media (max-width: 599px){
+                #main{
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 1vh;
+                    align-items: center;
+                }
+
+                .links{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.3vh;
+                    border: 1px solid lightgray;
+                    border-radius: 3px;
+                    width: 95vw;
+                    font-size: 12px;
+                }
+            }
+
+            nav{
+                display: flex;
+                flex-direction: column;
+                gap: 1vh;
+            }
+
+            a:hover{
+                background-color: #cccccc;
+            }
+
+            .linkdesc{
+                background-color: rgb(159, 158, 158);
+                color: white;
+            }
+
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1vh;
+                width: 90vw;
+                height: 100vh;
+            }
+
+            input{
+                width: 100px;
+                height: 14px;
+            }
+
+
+            footer{
+                display: flex;
+                justify-content: center;
+            }
+
+            button{
+                display: flex;
+                height: 20px;
+                align-items: center;
+            }
+
+            #esq{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 30vh;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <div id=imgs>
+                <img id=logo src="https://uspdigital.usp.br/comumwebdev/imagens/cabecalho/usp-logo.png">
+                <img id=nome src="https://uspdigital.usp.br/comumwebdev/imagens/cabecalho/usp-logo-texto.png">
+            </div>
+            <banner id=orange></banner>
+            <banner id=cyan></banner>
+            <banner id=darkcyan></banner>
+        </header>
+        <div id=main>
+            <nav>
+                <div class=links>
+                    <div class=linkdesc>
+                        Público
+                    </div>
+                    <a>Calendário Escolar</a>
+                    <a>Cursos de Ingresso</a>
+                    <a>Disciplinas</a>
+                    <a>Editais</a>
+                    <a>FAQ</a>
+                </div>
+                <div class=links>
+                    <div class=linkdesc>
+                        Acesso Restrito
+                    </div>
+                    <a>Entrar</a>
+                    <a>Esqueci a Senha</a>
+                    <a>Primeiro Acesso</a>
+                </div>
+            </nav>
+            <div id="esq">
+                <form>
+                    <input type="text" id="usuario" placeholder="Usuário">
+                    <input type="password" id="senha" placeholder="Senha">
+                    <button id=enviar type="submit">Entrar</button>
+                    
+                </form>
+                <div class="linha"></div>
+                <footer>
+                    © 2026 - 2026 - Raffael Raiél Trindade MAC0350
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

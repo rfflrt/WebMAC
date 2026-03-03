@@ -159,10 +159,11 @@
     // Exercício 5
     let valorContador = 10;
     function contagemRegressiva() {
+        if(valorContador===0) return
         valorContador--
         document.querySelector("#visor-contador").innerText=valorContador
         if(valorContador === 0){
-            alert("Fim do tempo!")
+            alert(`Fim do tempo!`)
         }
     }
 </script>

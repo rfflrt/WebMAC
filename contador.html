@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Contador</title>
+        <style>
+            #main{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+        </style>
+        <script>
+            let valor = 2;
+            function dobrar(){
+                let display = document.querySelector('h1')
+                valor = valor * 2;
+                display.innerText = valor;
+                if(valor > 100) alert(`Cuidado, o número ${valor} está ficando muito grande!`)
+            }
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            <h1>2</h1>
+            <button onclick="dobrar()">Dobrar</button>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+            Interruptor
+        </title>
+        <style>
+            body {
+                background-color: black;
+            }
+            
+            #main {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                gap: 5vh;
+            }
+            #status {
+                color: white;
+            }
+        </style>
+        <script>
+            let luz = 0
+            function alternarLuz(){
+                if(luz === 0){
+                    let texto = document.querySelector('p')
+                    texto.style.color = "black";
+                    texto.innerText = "A luz está ACESA"
+                    document.body.style.backgroundColor="white";
+                    luz = 1
+                }
+                else if(luz === 1){
+                    let texto = document.querySelector("p")
+                    texto.style.color = "white";
+                    texto.innerText = "A luz está APAGADA"
+                    document.body.style.backgroundColor="black";
+                    luz = 0
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            <p id="status">A luz está APAGADA</p>
+            <button onclick="alternarLuz()">Interruptor</button>
+        </div>
+    </body>
+</html>
