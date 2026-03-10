@@ -170,6 +170,7 @@ async def landpage():
 @app.post("/users")
 async def adduser(user: User):
     list.append(user)
+    return "Usuário adicionado :)"
 
 @app.get("/users")
 async def readusers(index: int | None = None):
@@ -180,4 +181,5 @@ async def readusers(index: int | None = None):
 
 @app.delete("/users")
 async def deleteusers():
-    list.clear()
+    list.clear() 
+    return "Apagou tudinho :("
