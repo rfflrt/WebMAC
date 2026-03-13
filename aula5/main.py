@@ -57,3 +57,11 @@ def get_active_user(session_user: Annotated[str | None, Cookie()] = None):
         raise HTTPException(status_code=401, detail="Sessão inválida")
     
     return user
+
+@app.get("home")
+def get_home(request: Request, user: dict = Depends(get_active_user)):
+    return templates.TemplateResponse(
+        request=request,
+        name="home.html",
+        context={"nome": user["nome"], "bio": user["bio"]}
+    )
