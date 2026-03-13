@@ -25,5 +25,5 @@ def get_home(request: Request):
 
 @app.post("/usuarios")
 def criar_usuario(user: Usuario):
-    usuarios_db.append(user.dict())
+    usuarios_db.append(user.model_dump())
     return{"usuario": user.nome}
