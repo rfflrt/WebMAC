@@ -25,14 +25,26 @@ async function enviarUsuario(){
 async function pegarUsuario(){
     const dados = {
         nome: document.getElementById('nome').value,
-        senha: document.getElementById('senha').value
+        senha: document.getElementById('senha').value,
+        bio: "momo"
     };
 
-    const resposta = await fetch('login', {
+    const resposta = await fetch('/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(dados)
-    })
+    });
+
+    if(resposta.ok){
+        const msg = await resposta.json();
+        alert(msg.message)
+        window.location.href = '/home'
+    }
+
+    else{
+        alert("Usuário não encontrado")
+    }
+
 }

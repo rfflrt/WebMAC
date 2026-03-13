@@ -15,7 +15,7 @@ class Usuario(BaseModel):
     senha: str
     bio: str
 
-usuarios_db = []
+usuarios_db = [{"nome": "1", "senha": "1", "bio": "1"}]
 
 @app.get("/")
 def get_signup(request: Request):
@@ -28,25 +28,27 @@ def criar_usuario(user: Usuario):
     usuarios_db.append(user.model_dump())
     return{"usuario": user.nome}
 
-@app.get("/login")
-def get_login(request: Request):
-    return templates.TemplateResponse(
-        request=request, name="login.html"
-    )
-
 @app.post("/login")
-def login(username: str, response: Response):
+def login(user: Usuario, response: Response):
+    user = user.model_dump()
     usuario_encontrado = None
     for u in usuarios_db:
-        if u["nome"] == username:
+        if u["nome"] == user["nome"] and u["senha"] == user["senha"]:
             usuario_encontrado = u
             break
 
     if not usuario_encontrado:
         raise HTTPException(status_code=404, detail="Usuário não encontrado")
 
-    response.set_cookie(key="session_user", value = username)
+    response.set_cookie(key="session_user", value = user["nome"])
     return {"message": "Logado com sucesso"}
+
+@app.get("/login")
+def get_login(request: Request):
+    return templates.TemplateResponse(
+        request=request, name="login.html"
+    )
+
 
 def get_active_user(session_user: Annotated[str | None, Cookie()] = None):
     if not session_user:
@@ -58,7 +60,7 @@ def get_active_user(session_user: Annotated[str | None, Cookie()] = None):
     
     return user
 
-@app.get("home")
+@app.get("/home")
 def get_home(request: Request, user: dict = Depends(get_active_user)):
     return templates.TemplateResponse(
         request=request,
