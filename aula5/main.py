@@ -1,8 +1,8 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
+from fastapi import FastAPI, Request, Depends, HTTPException, status, Cookie, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+from typing import Annotated
 
 app = FastAPI()
 
@@ -18,7 +18,7 @@ class Usuario(BaseModel):
 usuarios_db = []
 
 @app.get("/")
-def get_home(request: Request):
+def get_signup(request: Request):
     return templates.TemplateResponse(
         request=request, name="signup.html"
     )
@@ -27,3 +27,9 @@ def get_home(request: Request):
 def criar_usuario(user: Usuario):
     usuarios_db.append(user.model_dump())
     return{"usuario": user.nome}
+
+@app.get("login")
+def get_login(request: Request):
+    return templates.TemplateResponse(
+        request=request, name="login.html"
+    )
