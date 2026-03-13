@@ -29,18 +29,24 @@
             }
 
             #photo{
-                width: 20vw;
+                width: 220px;
+                height: 300px;
                 border-radius: 10px;
             }
 
             #info{
                 display: flex;
                 flex-direction: column;
-                gap: 5px;
+                gap: 10px;
                 font-size: 20px;
             }
 
-            .cv:link, .cv:visited, .cv:active{
+            .back:link, .back:visited, .back:active{
+                color: black;
+                text-decoration: none;
+            }
+
+            .cv,.back:link, .cv:visited, .cv:active{
                 color: black;
                 text-decoration: none;
             }
@@ -71,6 +77,25 @@
                 flex-direction: column;
                 gap: 10px;
             }
+
+            .assoc{
+                font-size: 18px;
+            }
+
+            nav{
+                margin-top: 5px;
+                display: flex;
+                justify-content: space-around;
+            }
+
+
+            footer{
+                border: 1px solid black;
+                width: 90vw;
+                position: fixed;
+                bottom: 0;
+                margin-bottom: 10px;
+            }
             </style>
     </head>
     <body>
@@ -78,25 +103,30 @@
 
         </div>
         <header>
-            Nina's Homepage
+            <a class="back" href="home.html"> Nina's Homepage </a>
         </header>
-
+        <nav>
+            <a class="navbt" href="/research.html">Research</a>
+            <a class="nacbut" href="/misc.html">Miscellanea</a>
+        </nav>
         <div class="pic">
             <img id="photo" src='nina1.jpg' onmouseover="this.src='nina2.jpg';" onmouseout="this.src='nina1.jpg';" />
             <div id="info">
-                <p> <b>Nina S. T. Hirata</b> <br>
-                    Associate Professor
+                <p> <b><medium>Nina S. T. Hirata</medium></b> <br>
+                    <small>Associate Professor</small>
                 </p>
                 <div id="links">
                     <a class="cv" href="http://lattes.cnpq.br/0644408634493034">Lattes CV</a>
                     <a class="cv" href="https://scholar.google.com/citations?hl=en&user=HnC89_0AAAAJ">Google Scholar</a>
                 </div>
                 <p>
-                    <a href="http://www.ime.usp.br/dcc/en/about">Department of Computer Science</a>   
-                    <a href="http://www.ime.usp.br/">Institute of Mathematics, Statistics and Computer Science</a>
-                    <a href=""
+                    <a class="assoc" href="http://www.ime.usp.br/dcc/en/about">Department of Computer Science</a> <br>
+                    <a class="assoc" href="http://www.ime.usp.br/">Institute of Mathematics, Statistics and Computer Science</a> <br>
+                    <a class="assoc" href="http://www5.usp.br/en/">University of São Paulo</a>
                 </p>
             </div>
         </div>
+        <footer>
+        </footer>
     </body>
 </html>
