@@ -22,17 +22,4 @@ async function enviarUsuario(){
     }
 }
 
-async function pegarUsuario(){
-    const dados = {
-        nome: document.getElementById('nome').value,
-        senha: document.getElementById('senha').value
-    };
-
-    const resposta = await fetch('login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dados)
-    })
-}
+async function pegarUsuario
