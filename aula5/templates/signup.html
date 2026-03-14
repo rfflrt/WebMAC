@@ -8,8 +8,6 @@
             body{
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
             }
 
             form{
@@ -18,12 +16,21 @@
                 align-items: center;
                 justify-content: center;
                 gap: 10px;
-                height: 100vh;
+                height: 95vh;
+            }
+
+            header{
+                height: 5vh;
+                gap: 10px;
             }
         </style>
     </head>
 
     <body>
+        <header>
+            <a href="/login">Login</a>
+            <a href="/home">Home</a>
+        </header>
         <form>
             <input type="text" id="nome" placeholder="Nome">
             <input type="password" id="senha" placeholder="Senha">

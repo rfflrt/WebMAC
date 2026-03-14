@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Home</title>
         <script src="/static/scriptsignup.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+            }
+
+            h1{
+                text-align: center;
+            }
+
+            header{
+                height: 5vh;
+                gap: 10px;
+            }
+        </style>
+
     </head>
 
     <body>
-        oi
+        <header>
+            <a href="/">SignUp</a>
+            <a href="/login">Login</a>
+        </header>
+        <p>
+            <h1>Olá, {% print(nome) %}!</h1><br>
+        </p>
+        Bio: {% print(bio) %}
     </body>
 </html>

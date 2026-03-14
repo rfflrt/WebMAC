@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Login</title>
         <script src="/static/scriptsignup.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+            }
+
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                height: 95vh;
+            }
+
+            header{
+                height: 5vh;
+                gap: 10px;
+            }
+        </style>
     </head>
 
     <body>
+        <header>
+            <a href="/">SignUp</a>
+            <a href="/home">Home</a>
+        </header>
         <form>
             <input type="text" id="nome" placeholder="Nome">
             <input type="password" id="senha" placeholder="Senha">
