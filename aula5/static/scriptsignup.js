@@ -16,7 +16,6 @@ async function enviarUsuario(){
     if(resposta.ok){
         const resultado = await resposta.json();
         alert("Usuário " + resultado.usuario + " criado!")
-        window.location.href = '/home'
     }
     else{
         alert("Erro ao enviar!")
