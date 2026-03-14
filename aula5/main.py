@@ -15,7 +15,7 @@ class Usuario(BaseModel):
     senha: str
     bio: str
 
-usuarios_db = [{"nome": "1", "senha": "1", "bio": "1"}]
+usuarios_db = [{"nome": "test", "senha": "test", "bio": "test"}]
 
 @app.get("/")
 def get_signup(request: Request):
