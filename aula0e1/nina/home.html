@@ -17,6 +17,7 @@
                 background-color: rgb(235, 235, 235);
                 margin-left: 5vw;
                 margin-right: 5vw;
+                font-family:Helvetica;
             }
 
             .pic{
@@ -88,13 +89,32 @@
                 justify-content: space-around;
             }
 
+            .navbut{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid black;
+                width: 400px;
+                height: 50px;
+            }
+
+            .navbut:link, .navbut:visited, .navbut:active{
+                color: black;
+                text-decoration: none;
+            }
 
             footer{
-                border: 1px solid black;
-                width: 90vw;
                 position: fixed;
                 bottom: 0;
-                margin-bottom: 10px;
+                border: 1px solid black;
+                width: 90vw;
+                margin-bottom: 50px;
+                height: 30vh;
+                gap: 15px;
+            }
+        
+            h2{
+                margin-left: 20px;
             }
             </style>
     </head>
@@ -106,8 +126,8 @@
             <a class="back" href="home.html"> Nina's Homepage </a>
         </header>
         <nav>
-            <a class="navbt" href="/research.html">Research</a>
-            <a class="nacbut" href="/misc.html">Miscellanea</a>
+            <a class="navbut" href="/research.html">Research</a>
+            <a class="navbut" href="/misc.html">Miscellanea</a>
         </nav>
         <div class="pic">
             <img id="photo" src='nina1.jpg' onmouseover="this.src='nina2.jpg';" onmouseout="this.src='nina1.jpg';" />
@@ -127,6 +147,7 @@
             </div>
         </div>
         <footer>
+            <h2>Contact</h2>
         </footer>
     </body>
 </html>
