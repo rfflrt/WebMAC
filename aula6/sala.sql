@@ -35,7 +35,7 @@ CREATE TABLE fabricante (
 );
 
 CREATE TABLE produto (
-    pedido_id INTEGER PRIMARY KEY,
+    produto_id INTEGER PRIMARY KEY,
     nome TEXT NOT NULL,
     fabricante_id INTEGER,
 
