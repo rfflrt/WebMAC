@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js" integrity="sha384-ezjq8118wdwdRMj+nX4bevEi+cDLTbhLAeFF688VK8tPDGeLUe0WoY2MZtSla72F" crossorigin="anonymous"></script>
+        <style>
+            #menu{
+                display: flex;
+                justify-content: center;
+                width: 100vw;
+                margin-bottom: 15px;
+            }
+
+            nav{
+                display: flex;
+                gap: 20px;
+            }
+
+            .navbut{
+                background-color: rgb(0, 0, 0);
+                border: 1px solid black;
+                color: white;
+                height: 50px;
+                width: 100px;
+            }
+
+            body{
+                height: 100vh;
+            }
+        </style>
+    </head>
+    <body hx-trigger="keyup[shiftKey&&altKey&&key=='P'] from:body" 
+        hx-get="/proxima" 
+        hx-target="main">
+
+        <header id="menu">
+            <nav>
+                <button class="navbut" hx-get="/aba/curtir" hx-target="main" hx-push-url="true">
+                    Curtidas
+                </button>
+                <button class="navbut" hx-get="/aba/jupiter" hx-target="main" hx-push-url="true">
+                    Júpiter
+                </button>
+                <button class="navbut" hx-get="/aba/professor" hx-target="main" hx-push-url="true">
+                    Página
+                </button>
+            </nav>
+        </header>
+
+        <main hx-get="/aba/{{aba}}"
+              hx-target="main" 
+              hx-trigger="load"
+              hx-push-url="true">
+        </main>
+    </body>
+</html>

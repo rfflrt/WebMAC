@@ -1,0 +1,170 @@
+<style>
+    .container header{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container #imgs{
+        display: flex;
+        align-items: center;
+        gap: 2vh;
+    }
+
+    .container #logo{
+        height: 5vh;
+        margin-top: -1vh;
+        margin-left: 2vh;
+    }
+    
+    .container #nome{
+        height: 6vh;
+    }
+
+    .container #orange{
+        background-color: orange;
+        height: 4px;
+    }
+
+    .container  #cyan{
+        background-color: rgb(85, 215, 232);
+        height: 4px;
+    }
+
+    .container  #darkcyan{
+        background-color: rgb(4, 144, 159);
+        height: 12px;
+    }
+
+    @media (min-width: 600px){
+        .container #main{
+            display: flex;
+            margin-top: 1vh;
+        }
+
+        .container .links{
+            display: flex;
+            flex-direction: column;
+            gap: 0.3vh;
+            border: 1px solid lightgray;
+            border-radius: 3px;
+            width: 100px;
+            font-size: 12px;
+
+        }
+    }
+    @media (max-width: 599px){
+        .container #main{
+            display: flex;
+            flex-direction: column;
+            margin-top: 1vh;
+            align-items: center;
+        }
+
+        .container .links{
+            display: flex;
+            flex-direction: column;
+            gap: 0.3vh;
+            border: 1px solid lightgray;
+            border-radius: 3px;
+            width: 95vw;
+            font-size: 12px;
+        }
+    }
+
+    .container nav{
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+    }
+
+    .container a:hover{
+        background-color: #cccccc;
+    }
+
+    .container .linkdesc{
+        background-color: rgb(159, 158, 158);
+        color: white;
+    }
+
+    .container form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1vh;
+        width: 90vw;
+        height: 100vh;
+    }
+
+    .container input{
+        width: 100px;
+        height: 14px;
+    }
+
+
+    .container footer{
+        display: flex;
+        justify-content: center;
+    }
+
+    .container button{
+        display: flex;
+        height: 20px;
+        align-items: center;
+    }
+
+    .container #esq{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+    }
+
+</style>
+
+<section class="container">
+    <header>
+        <div id=imgs>
+            <img id=logo src="https://uspdigital.usp.br/comumwebdev/imagens/cabecalho/usp-logo.png">
+            <img id=nome src="https://uspdigital.usp.br/comumwebdev/imagens/cabecalho/usp-logo-texto.png">
+        </div>
+        <banner id=orange></banner>
+        <banner id=cyan></banner>
+        <banner id=darkcyan></banner>
+    </header>
+    <div id=main>
+        <nav>
+            <div class=links>
+                <div class=linkdesc>
+                    Público
+                </div>
+                <a>Calendário Escolar</a>
+                <a>Cursos de Ingresso</a>
+                <a>Disciplinas</a>
+                <a>Editais</a>
+                <a>FAQ</a>
+            </div>
+            <div class=links>
+                <div class=linkdesc>
+                    Acesso Restrito
+                </div>
+                <a>Entrar</a>
+                <a>Esqueci a Senha</a>
+                <a>Primeiro Acesso</a>
+            </div>
+        </nav>
+        <div id="esq">
+            <form>
+                <input type="text" id="usuario" placeholder="Usuário">
+                <input type="password" id="senha" placeholder="Senha">
+                <button id=enviar type="submit">Entrar</button>
+                
+            </form>
+            <div class="linha"></div>
+            <footer>
+                © 2026 - 2026 - Raffael Raiél Trindade MAC0350
+            </footer>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,46 @@
+<style>
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    #contador{
+        font-size: 50px;
+    }
+
+    #bttns{
+        display: flex;
+        flex-direction: column;
+        height: 30px;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    #title{
+        font-size: 20px;
+    }
+</style>
+
+<section class="container">
+    <p id="title">Curtidas</p>
+    
+    <div id="contador">
+        {{ contador }}
+    </div>
+
+    <div id="bttns">
+        <button hx-post="/curtir" 
+                hx-target="#contador" >
+            Curtir!
+        </button>
+
+        <button hx-delete="/curtir" 
+                hx-target="#contador"
+                hx-confirm="Você quer apagar todas curtidas?">
+            Remover curtidas
+        </button>
+    </div>
+</section>
