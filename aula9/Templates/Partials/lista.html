@@ -1,0 +1,46 @@
+<div>
+    <input type="text" 
+        name="busca" 
+        placeholder="Buscar..."
+        hx-get="/lista"
+        hx-trigger="input changed delay:500ms"
+        hx-select="#lista"
+        hx-target="#lista"
+        hx-indicator="#indicator">
+
+    <img id="indicator" class="htmx-indicator" src="/Static/spinner.svg" alt="Carregando..."/></div>
+<div id="lista">
+    <ul>
+        {% for aluno in alunos %}
+            <li>{{ aluno.id }} {{ aluno.nome }}</li>
+        {% else %}
+            <li>Não há alunos</li>
+        {% endfor %}
+    </ul>
+
+    <button
+        {% if pagina > 1 %}
+            hx-get="/lista"
+            hx-target="#lista"
+            hx-select="#lista"
+            hx-vals='{"pagina": {{ pagina - 1 }}, "busca": "{{ busca }}"}'
+            hx-indicator="#indicator"
+        {% else %}
+            disabled
+        {% endif %}>
+        Anterior
+    </button>
+
+    <button
+        {% if pagina < total_paginas %}
+            hx-get="/lista"
+            hx-target="#lista"
+            hx-select="#lista"
+            hx-vals='{"pagina": {{ pagina + 1 }}, "busca": "{{ busca }}"}'
+            hx-indicator="#indicator"
+        {% else %}
+            disabled
+        {% endif %}>
+        Próximo
+    </button>
+</div>

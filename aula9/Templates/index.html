@@ -1,0 +1,60 @@
+<!-- Arquivo index.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js" integrity="sha384-ezjq8118wdwdRMj+nX4bevEi+cDLTbhLAeFF688VK8tPDGeLUe0WoY2MZtSla72F" crossorigin="anonymous"></script>        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <title>Meu Site</title>
+        <style>
+            .fade-out.htmx-swapping {
+                opacity: 0;
+                transition: opacity 1s ease-out;}
+        </style>
+<body class="fade-out">
+    </head>
+    <body>
+        <h1>Meu Site</h1>
+        <p>Bem vindo ao meu site!</p>
+        <button hx-get="/lista"
+                hx-target="main">
+                Lista de alunos
+        </button>
+        <button hx-get="/editarAlunos"
+                hx-target="main">
+                Editar lista de alunos
+        </button>
+        <button hx-delete="/apagar"
+        hx-target="body"
+        hx-confirm="Deseja deletar meu site?"
+        hx-swap="outerHTML swap:1s"
+        id="apagar">
+        Deletar site
+        </button>
+        <hr>
+        <main hx-get="/lista"
+              hx-target="main"
+              hx-trigger="load">
+        </main>
+    </body>
+<script>
+    document.getElementById("apagar").addEventListener("htmx:confirm", (e) => {
+        e.preventDefault()
+        Swal.fire({
+            title: "Prosseguir?",
+            text: `${e.detail.question}`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Sim, deletar o site",
+            cancelButtonText: "Cancelar",
+            cancelButtonColor: "#d33"
+        }).then(result => {
+            if (result.isConfirmed) {
+                e.detail.issueRequest(true);
+            }
+        })
+    })
+</script>
+</html>
