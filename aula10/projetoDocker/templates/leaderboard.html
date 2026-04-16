@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+{% block title %}Leaderboard - Minesweeper3000{% endblock %}
+
+{% block content %}
+<h2>Leaderboard</h2>
+<div class="lb-grid">
+    {% for diff in ["easy", "medium", "hard", "medium (Mobile)", "hard (Mobile)"] %}
+    <section class="card">
+        <h3>Fastest - {{ diff }}</h3>
+        {% if best_times[diff] %}
+        <table class="lb-table">
+        <tr><th>#</th><th>Player</th><th>Time</th></tr>
+        {% for name, secs in best_times[diff] %}
+        <tr>
+            <td>{{ loop.index }}</td><td>{{ name }}</td><td>{{ secs }}s</td>
+        </tr>
+        {% endfor %}
+        </table>
+        {% else %}
+        <p class="hint">No entries yet.</p>
+        {% endif %}
+    </section>
+    {% endfor %}
+    <section class="card">
+        <h3>Wins</h3>
+        <input type="text"  
+            placeholder="Search"
+            hx-get="/leaderboard"
+            hx-target="#wins"
+            hx-trigger="input changed delay:500ms"
+            hx-select="#wins"
+            name="busca">
+        {% if most_wins %}
+        <table id="wins" class="lb-table">
+        <tr><th>#</th><th>Player</th><th>Wins</th><th>Streak</th></tr>
+        {% for name, wins, streak in most_wins %}
+        <tr>
+        <td>{{ loop.index }}</td><td>{{ name }}</td><td>{{ wins }}</td><td>{{ streak }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+        {% else %}
+        <p class="hint">No data yet.</p>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

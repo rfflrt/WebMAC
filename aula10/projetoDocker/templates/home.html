@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+{% block title %}Home - Minesweeper3000{% endblock %}
+
+{% block content %}
+<div class="home-grid">
+    <section class="card">
+        <h3>New Game</h3>
+        <form hx-post="/game/new" hx-target="#main" hx-swap="innerHTML">
+            <div class="diff-buttons">
+                {% for name, d in difficulties.items() %}
+                <button type="submit" name="difficulty" value="{{ name }}" class="{% if 'Mobile' in name %}mobile{% elif 'easy' in name %}mobile,desktop{% else %}desktop{% endif %}">
+                    {{ name|capitalize }}
+                    <small>{{ d.rows }}X{{ d.cols }}, {{ d.mines }} mines</small>
+                </button>
+                {% endfor %}
+                <button type="button"
+                    onclick="document.getElementById('custom-fields').classList.toggle('hidden')">
+                    Custom
+                </button>
+            </div>
+
+            <div id="custom-fields" class="hidden custom-fields">
+                <label> Rows <input name="custom_rows" type="number" value="12" min="5" max="30"></label>
+                <label> Cols <input name="custom_cols" type="number" value="20" min="5" max="50"></label>
+                <label> Mines <input name="custom_mines" type="number" value="30" min="1"></label>
+                <button type="submit" name="difficulty" value="custom">Start</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="card">
+        <h3>Stats</h3>
+        <table class="info-table">
+            <tr><td>Wins</td> <td>{{ stats.games_won }}</td></tr>
+            <tr><td>Losses</td> <td>{{ stats.games_lost }}</td></tr>
+            <tr><td>Streak</td> <td>{{ stats.current_streak }}</td></tr>
+            <tr><td>Best streak</td> <td>{{ stats.best_streak }}</td></tr>
+        </table>
+    </section>
+</div>
+{% endblock %}

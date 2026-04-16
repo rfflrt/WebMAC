@@ -1,0 +1,28 @@
+<div class="hud">
+    <span>💣 <span id="mine-count">{{ game.mine_count }}</span></span>
+    <span id="timer">00:00</span>
+    <button id="flag-btn" onclick="toggleFlag()">🚩 Flag: <span id="flag-label">OFF</span></button>
+</div>
+
+<div id="board-wrap">
+    <div id="board"></div>
+</div>
+
+<div id="overlay" class="overlay hidden">
+    <div class="overlay-box">
+        <div id="overlay-icon"></div>
+        <h2 id="overlay-title"></h2>
+        <p id="overlay-msg"></p>
+        <button hx-get="/" hx-target="#main" hx-swap="innerHTML" class="btn">
+            Play again
+        </button>
+    </div>
+</div>
+
+<div id="game-data"
+    data-game-id="{{ game.id }}"
+    data-rows="{{ game.rows }}"
+    data-cols="{{ game.cols }}"
+    data-mines="{{ game.mine_count }}"
+    style="display:none"></div>
+<link rel="stylesheet" href="/static/game.css"
